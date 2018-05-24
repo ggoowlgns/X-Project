@@ -7,6 +7,8 @@ host = "192.168.0.9"
 port = 12800
 
 #mellow
+#test
+
 class Affichage:
     def __init__(self):
         self.perso = pygame.Surface((32, 32))
