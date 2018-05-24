@@ -6,11 +6,7 @@ import pygame
 #addfdsfsdfsf
 host = "192.168.0.9"
 port = 12800
-<<<<<<< HEAD
-=======
 
-#mellow
->>>>>>> a6bfe91b318e540cf30a8301f3e569be5f266d9d
 #test
 #chaf
 #hihi
