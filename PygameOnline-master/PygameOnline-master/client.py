@@ -3,6 +3,7 @@ import pickle
 from threading import Thread
 import pygame
 
+#addfdsfsdfsf
 host = "192.168.0.9"
 port = 12800
 
