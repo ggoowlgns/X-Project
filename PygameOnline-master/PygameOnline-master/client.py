@@ -5,7 +5,7 @@ import pygame
 
 host = "192.168.0.9"
 port = 12800
-
+#test
 
 class Affichage:
     def __init__(self):
