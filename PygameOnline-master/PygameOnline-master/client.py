@@ -8,7 +8,7 @@ port = 12800
 
 #mellow
 #test
-#hi
+#chaf
 class Affichage:
     def __init__(self):
         self.perso = pygame.Surface((32, 32))
