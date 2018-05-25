@@ -3,10 +3,14 @@ import pickle
 from threading import Thread
 import pygame
 
+#addfdsfsdfsf
 host = "192.168.0.9"
 port = 12800
 
-
+#test
+#chaf
+#hihi
+#나는 손님입니다.
 class Affichage:
     def __init__(self):
         self.perso = pygame.Surface((32, 32))
