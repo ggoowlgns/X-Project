@@ -25,7 +25,7 @@ def echo_server(my_port):
     """Echo server (iterative)"""
     try:
         sock = socket(AF_INET, SOCK_STREAM) # make listening socket
-        sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1) # Reuse port number if used
+        # sock.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1) # Reuse port number if used
         sock.bind(('', my_port))        # bind it to server port number
         sock.listen(5)                  # listen, allow 5 pending connects
 
