@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string-array name="univ">
+        <item>Study Room1</item>
+        <item>Study Room2</item>
+    </string-array>
+
+    <string-array name="dept">
+        <item>3명</item>
+        <item>4명</item>
+        <item>5명</item>
+        <item>6명</item>
+        <item>7명</item>
+        <item>8명</item>
+    </string-array>
+
+    <string-array name="start">
+        <item>09시30분</item>
+        <item>10시00분</item>
+        <item>10시30분</item>
+        <item>11시00분</item>
+        <item>11시30분</item>
+        <item>12시00분</item>
+        <item>12시30분</item>
+        <item>13시00분</item>
+        <item>13시30분</item>
+        <item>14시00분</item>
+        <item>14시30분</item>
+        <item>15시00분</item>
+        <item>15시30분</item>
+        <item>16시00분</item>
+        <item>16시30분</item>
+        <item>17시00분</item>
+        <item>17시30분</item>
+        <item>18시00분</item>
+        <item>18시30분</item>
+        <item>19시00분</item>
+        <item>19시30분</item>
+        <item>20시00분</item>
+        <item>20시30분</item>
+        <item>21시00분</item>
+        <item>21시30분</item>
+        <item>22시00분</item>
+        <item>22시30분</item>
+        <item>23시00분</item>
+        <item>23시30분</item>
+        <item>00시00분</item>
+        <item>00시30분</item>
+    </string-array>
+
+    <string-array name="end">
+        <item>09시30분</item>
+        <item>10시00분</item>
+        <item>10시30분</item>
+        <item>11시00분</item>
+        <item>11시30분</item>
+        <item>12시00분</item>
+        <item>12시30분</item>
+        <item>13시00분</item>
+        <item>13시30분</item>
+        <item>14시00분</item>
+        <item>14시30분</item>
+        <item>15시00분</item>
+        <item>15시30분</item>
+        <item>16시00분</item>
+        <item>16시30분</item>
+        <item>17시00분</item>
+        <item>17시30분</item>
+        <item>18시00분</item>
+        <item>18시30분</item>
+        <item>19시00분</item>
+        <item>19시30분</item>
+        <item>20시00분</item>
+        <item>20시30분</item>
+        <item>21시00분</item>
+        <item>21시30분</item>
+        <item>22시00분</item>
+        <item>22시30분</item>
+        <item>23시00분</item>
+        <item>23시30분</item>
+        <item>00시00분</item>
+        <item>00시30분</item>
+    </string-array>
+
+
+</resources>

@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:gravity = "center"
+    android:layout_height="match_parent"
+    android:background="@color/bg">
+
+    <Button
+        android:id="@+id/book"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:onClick="onClick"
+        android:text="예약현황
+"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/note"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:onClick="onClick"
+        android:text="예약하기"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/rule"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:onClick="onClick"
+        android:text="이용방법"
+        android:textSize="30sp" />
+
+    <Button
+        android:id="@+id/use"
+        android:layout_width="match_parent"
+        android:layout_height="70dp"
+        android:onClick="onClick"
+        android:text="이용수칙"
+        android:textSize="30sp" />
+</LinearLayout>
