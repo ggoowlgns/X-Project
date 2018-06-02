@@ -1,0 +1,37 @@
+<!-- C\Code\mysite\elections\templates\elections\index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <title>선거 후보</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+  <script src="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td><B>이름</B></td>
+            <td><B>소개</B></td>
+            <td><B>출마지역</B></td>
+            <td><B>기호</B></td>
+        </tr>
+        </thead>
+        <!-- 이 부분이 바뀌었습니다 -->
+        <tbody>
+        {% for candidate in candidates %}  <!--for문 돌리는중-->
+        <tr>
+            <td> {{ candidate.name }} </td>
+            <td> {{ candidate.introduction }} </td>
+            <td><a href =  "areas/{{ candidate.area }}/">
+                {{ candidate.area }}
+            </a> </td>
+            <td>기호 {{ candidate.party_number }} 번</td>
+        </tr>
+        {% endfor %}
+        <!-- 여기까지 -->
+    </table>
+</body>

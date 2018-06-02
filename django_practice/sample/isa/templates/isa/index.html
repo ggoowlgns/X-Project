@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+    <table class="table table-striped">
+        <thead>
+        <tr>
+            <td><B>학번</B></td>
+            <td><B>이름</B></td>
+            <td><B>비밀번호</B></td>
+            <td><B>폰번호</B></td>
+        </tr>
+        </thead>
+        <!-- 이 부분이 바뀌었습니다 -->
+        <tbody>
+        {% for member in members%}  <!--for문 돌리는중-->
+        <tr>
+            <td> {{ member.id }} </td>
+            <td> {{ member.name}} </td>
+            <td><a href =  "member/{{ candidate.area }}/">
+                {{ member.passwd}}
+            </a> </td>
+            <td>{{ member.phone_num}} </td>
+        </tr>
+        {% endfor %}
+        <!-- 여기까지 -->
+    </table>
+</body>
+</html>

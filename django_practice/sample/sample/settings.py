@@ -25,7 +25,7 @@ SECRET_KEY = 'c!py%4_^(_fl+t=8iy2wu%^6nl3lsa6k@1c7+td*@b$0-!uu)z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["192.168.0.11"]
 
 
 # Application definition
@@ -37,6 +37,9 @@ INSTALLED_APPS = [
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    # 'bookmark.apps.BookmarkConfig',
+    'elctions',
+    'isa',
 ]
 
 MIDDLEWARE = [
@@ -76,11 +79,12 @@ WSGI_APPLICATION = 'sample.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME': os.path.join(BASE_DIR, 'db.mysql'),
+        'NAME': 'xproj',
         'USER' : 'root',
         'PASSWORD' : 'root',
         'HOST' : 'localhost',
         'PORT' : '3306',
+        'OPTIONS': {'charset': 'utf8mb4'},
     }
 }
 
