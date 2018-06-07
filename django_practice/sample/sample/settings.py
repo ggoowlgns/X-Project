@@ -25,7 +25,7 @@ SECRET_KEY = 'c!py%4_^(_fl+t=8iy2wu%^6nl3lsa6k@1c7+td*@b$0-!uu)z'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = ["192.168.0.11"]
+ALLOWED_HOSTS = ["192.168.0.11","192.168.0.2","10.10.6.179"]
 
 
 # Application definition
@@ -131,5 +131,8 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = [os.path.join(BASE_DIR,'static')] #추가
 
 
-MEDIA_URL = '/media/'
+#사진관련
 MEDIA_ROOT = os.path.join(BASE_DIR,'media')
+MEDIA_URL = '/media/'
+
+CSRF_COOKIE_SECURE = True

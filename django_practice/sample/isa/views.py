@@ -1,8 +1,12 @@
-from django.shortcuts import render
-from django.http import HttpResponse
+from django.shortcuts import render,render_to_response
+from django.http import HttpResponse,HttpResponseRedirect
 from .models import Members
 from django.views.decorators.csrf import csrf_exempt
 import MySQLdb
+from django.template import RequestContext
+from .models import Image
+from .forms import ImageForm
+from django.urls import reverse
 import json
 # Create your views here.
 
@@ -41,14 +45,15 @@ def signup(request):
         passwd = request.POST.get('passwd')
         name = request.POST.get('name')
         phone_num = request.POST.get('phone_num')
+        job = request.POST.get('job')
 
-        staff_data = [(str(id), str(passwd), str(name), str(phone_num))]
+        staff_data = [(str(id), str(passwd), str(name), str(phone_num),str(job))]
         for p in staff_data:
-            format_str = """INSERT INTO isa_members (id , passwd , name , phone_num)
-            VALUES ( '{id}' , '{passwd}', '{name}' , '{phone_num}');
+            format_str = """INSERT INTO isa_members (id , passwd , name , phone_num,job)
+            VALUES ( '{id}' , '{passwd}', '{name}' , '{phone_num}','{job}');
             """
 
-            sql_command = format_str.format(id=p[0], passwd=p[1], name=p[2], phone_num=p[3])
+            sql_command = format_str.format(id=p[0], passwd=p[1], name=p[2], phone_num=p[3],job=p[4])
             print("inserted")
             cursor.execute(sql_command)
 
@@ -100,3 +105,48 @@ def login(request):
 
 
     return HttpResponse()
+
+@csrf_exempt
+def upload_file(request):
+    if request.method == 'POST':
+        form = ImageForm(request.POST , request.FILES)
+        if form.is_valid():
+            newimg = Image(imagefile = request.FILES['imagefile'])
+            newimg.save()
+
+            return HttpResponse()
+        else:
+            form = ImageForm()
+
+        images = Image.object.all()
+
+        return HttpResponse()
+
+@csrf_exempt
+def str_encodedfile(request):
+    connection = MySQLdb.connect(host=aws_ip,
+                                 user="root",
+                                 passwd="root",
+                                 db="xproj",
+                                 use_unicode=True,
+                                 charset="utf8")
+    cursor = connection.cursor()
+
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        pic_encode = request.POST.get('pic_encode')
+        staff_data = [(str(id), str(pic_encode))]
+        for p in staff_data:
+            format_str = "UPDATE isa_members set pic_encode='"+pic_encode+"' WHERE id = '"+id+"';"
+            print(format_str)
+
+            sql_command = format_str
+            cursor.execute(sql_command)
+
+            print("added pic_encode")
+
+        #####conection 모두 종료########
+        connection.commit()
+        cursor.close()
+        connection.close()
+    return HttpResponse("pic_encode added")
