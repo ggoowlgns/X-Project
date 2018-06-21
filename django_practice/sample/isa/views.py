@@ -322,7 +322,7 @@ def sub_detail(request):
             print(fetall2)
             send += (stu_name+":"+fetall2[0][0]+"/")
         #####conection 모두 종료########
-        connection.commit()
+        connection.commit() 
         cursor.close()
         connection.close()
         return HttpResponse(send)
