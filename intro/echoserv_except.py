@@ -3,7 +3,7 @@ import sys
 from socket import *
 from threading import Thread
 import MySQLdb
-my_ip = "192.168.0.11"
+my_ip = "192.168.35.211"
 data = "type:load\r\ntime:(현재시각)\r\ntemperature:(평균온도)\r\n"
 
 class temp_time():

@@ -290,7 +290,27 @@ def sub_get(request):
         connection.close()
 
     return HttpResponse("error")
+@csrf_exempt
+def stu_detail(request):
+    connection = MySQLdb.connect(host=aws_ip,
+                                 user="root",
+                                 passwd="root",
+                                 db="xproj",
+                                 use_unicode=True,
+                                 charset="utf8")
+    cursor = connection.cursor()
+    if request.method == "POST":
+        stu_id = request.POST.get('id');
+        format_str2 = "SELECT attend FROM isa_members WHERE id=\'" + stu_id + "\';"
+        login_boolean = cursor.execute(format_str2)  # 0 : 아이디 없을때 1 : 아이디 존재
+        fetall2 = cursor.fetchall()
+        send = fetall2[0][0]
 
+        #####conection 모두 종료########
+        connection.commit()
+        cursor.close()
+        connection.close()
+        return HttpResponse(send)
 
 @csrf_exempt
 def sub_detail(request):
@@ -322,10 +342,64 @@ def sub_detail(request):
             print(fetall2)
             send += (stu_name+":"+fetall2[0][0]+"/")
         #####conection 모두 종료########
-        connection.commit() 
+        connection.commit()
         cursor.close()
         connection.close()
         return HttpResponse(send)
     
     return HttpResponse("error")
 
+@csrf_exempt
+def stu_out(request):
+    connection = MySQLdb.connect(host=aws_ip,
+                                 user="root",
+                                 passwd="root",
+                                 db="xproj",
+                                 use_unicode=True,
+                                 charset="utf8")
+    cursor = connection.cursor()
+    if request.method == 'POST':
+        id = request.POST.get('id')
+        format_str = "UPDATE isa_members set attend= \'" + str(0) + "\' WHERE id = \'" + id + "\';"
+        print(format_str)
+
+        sql_command = format_str
+        cursor.execute(sql_command)
+    #####conection 모두 종료########
+    connection.commit()
+    cursor.close()
+    connection.close()
+
+    return HttpResponse("attendance changed")
+
+##############VICER PROJECT#######################
+accel = False
+
+
+
+@csrf_exempt
+def accel_on(request):
+    global accel
+    if request.method == "POST":
+        accel = True
+        return HttpResponse("accel_on")
+
+@csrf_exempt
+def accel_off(request):
+    global accel
+    if request.method == 'POST':
+        accel = False
+        return HttpResponse("accel_off")
+
+
+
+@csrf_exempt
+def status_response(request):
+    global accel
+    if request.method == "GET":
+        if accel == True:
+            print("send A")
+            return HttpResponse(bytes('A'))
+        elif accel == False:
+            print("send N")
+            return HttpResponse('N'.encode())

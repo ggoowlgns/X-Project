@@ -9,11 +9,11 @@ def echo_client(server_addr):
         message = sys.stdin.readline()
         if message == '\n': break
         sock.send(message.encode('utf-8'))      # send message to server
-        data = sock.recv(1024).decode('utf-8') # receive response up to 1KB
+        data = sock.recv(1024) # receive response up to 1KB
         print(data, end='')
     sock.close()                    # close socket to send eof to server
     
 if __name__ == '__main__':
-    echo_client(('18.179.74.220', 50007))
+    echo_client(('192.168.35.211', 8010))
     # echo_client(('np.hufs.ac.kr', 7))
 

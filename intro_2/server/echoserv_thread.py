@@ -6,6 +6,7 @@ def echo_handler(conn, cli_addr):
     while True:
         try:
             data = conn.recv(1024)  # recv next message on connected socket
+            print(data)
             if not data:       # eof when the socket closed
                 logging.info('Client closing: {}'.format(cli_addr))
                 break
@@ -33,5 +34,5 @@ def echo_server(my_port):
         
 if __name__ == '__main__':
     logging.basicConfig(filename='', level=logging.INFO)
-    echo_server(50007)
+    echo_server(8010)
 
